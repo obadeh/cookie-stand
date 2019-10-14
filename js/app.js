@@ -101,7 +101,7 @@ var li=[];
 var ul = document.createElement('ul');
 test.appendChild(ul);
 
-var shops = [seattle ,Tokyo ,Dubai ,Paris ,Lima] ;
+var shops = [seattle ] ;
 var hours=['6am', '7am', '8am', '9am','10am', '11am','12am'];
 var cookies= [];
 var result=[];
@@ -120,11 +120,6 @@ for(var i=0;i<shops.length;i++){
         result[h]= [hours[h]+':'+cookies[h]+' cookies'] ;
 
 
-
-
-
-
-       
 
 
         li = document.createElement('li');
