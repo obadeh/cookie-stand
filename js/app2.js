@@ -80,87 +80,85 @@ var Lima = {
     }
 }
 
+// render h1
+var container = document.getElementById('content');
+// var h1 =document.createElement('h1');
+// container.appendChild(h1);
+// h1.textContent='seattle';
 
 
 
 
 
-var header1 = document.createElement('h1');
-header1.textContent = 'Seattle';
-
-var asd = document.getElementById("test");
-asd.appendChild(header1);
-
-var paragraph = document.createElement('p');
-paragraph.textContent = 'seattle';
-
-var test = document.getElementById('test');
-test.appendChild(paragraph);
 
 
 
 
-var ul = document.createElement('ul');
-
-test.appendChild(ul);
 
 
+var shops = [seattle, Tokyo, Dubai, Paris, Lima];
+var shops1=["seattle", "Tokyo", "Dubai", "Paris", "Lima"];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 
-var shops = [seattle];
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm',];
 
-var result = [];
-
-var totalCookies=0 ;
+var totalCookies = 0;
 
 for (var i = 0; i < shops.length; i++) {
 
     var shop = shops[i];
 
-    for (var h = 0; h < hours.length; h++) {
 
+    var h1 = document.createElement('h1');
+    container.appendChild(h1);
+    h1.textContent = shops1[i] ;
+    
+    var ul = document.createElement('ul');
+    container.appendChild(ul) ;
+
+
+
+
+
+    for (var h = 0; h < hours.length; h++) {
 
         var hour = hours[h];
 
-        shops[i].cookies[h] = Math.ceil((seattle.AvgCookie) * (seattle.randomCust()));
+        shop.cookies[h] = Math.ceil((shop.AvgCookie) * (shop.randomCust()));
 
-        result[h] = [hours[h] + ':' + seattle.cookies[h] + ' cookies'];
+        // result[h] = [hours[h] + ':' + shop.cookies[h] + ' cookies'];
 
+        result = hours[h] + ':' + shop.cookies[h] + ' cookies';
 
-        
+        // render to html
         var li = document.createElement('li');
-        
+
         ul.appendChild(li);
-        
-        li.textContent = result[h];
-        
+
+        li.textContent = result;
+
+        totalCookies += seattle.cookies[h];
 
 
-        totalCookies+=seattle.cookies[h];
-       
+
         
+    
     };
 
 
-    var li =document.createElement('li');
-    li.textContent='Total :' + totalCookies+' cookies';
+    var li = document.createElement('li');
+    li.textContent = 'Total :' + totalCookies + ' cookies';
     ul.appendChild(li);
-    
+
 }
 
 
 
 
 
-var test = document.getElementById('test');
 
 
 
 
-var container = document.getElementById('content');
-var h1 =document.createElement('h1');
-container.appendChild(h1);
 
-h1.textContent='hello';
 
