@@ -86,7 +86,7 @@ var Lima = {
 
 
 var header1 = document.createElement('h1');
-header1.textContent = 'Sales Data';
+header1.textContent = 'Seattle';
 
 var asd = document.getElementById("test");
 asd.appendChild(header1);
@@ -97,15 +97,23 @@ paragraph.textContent = 'seattle';
 var test = document.getElementById('test');
 test.appendChild(paragraph);
 
-var li = [];
+
+
+
 var ul = document.createElement('ul');
+
 test.appendChild(ul);
 
+
+
+
 var shops = [seattle];
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am'];
-var cookies = [];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm',];
+
 var result = [];
-var totalCookies ;
+
+var totalCookies=0 ;
+
 for (var i = 0; i < shops.length; i++) {
 
     var shop = shops[i];
@@ -115,29 +123,32 @@ for (var i = 0; i < shops.length; i++) {
 
         var hour = hours[h];
 
-        cookies[h] = Math.ceil((seattle.AvgCookie) * (seattle.randomCust()));
-        shops[i].cookies[h] = cookies[h];
+        shops[i].cookies[h] = Math.ceil((seattle.AvgCookie) * (seattle.randomCust()));
 
-        result[h] = [hours[h] + ':' + cookies[h] + ' cookies'];
-
+        result[h] = [hours[h] + ':' + seattle.cookies[h] + ' cookies'];
 
 
         
-        li = document.createElement('li');
+        var li = document.createElement('li');
         
         ul.appendChild(li);
-
+        
         li.textContent = result[h];
+        
 
+
+        totalCookies+=seattle.cookies[h];
        
+        
     };
 
 
     var li =document.createElement('li');
-    li.textContent='Tootal :' + totalCookies;
+    li.textContent='Total :' + totalCookies+' cookies';
     ul.appendChild(li);
     
 }
+
 
 
 
@@ -146,4 +157,10 @@ var test = document.getElementById('test');
 
 
 
+
+var container = document.getElementById('content');
+var h1 =document.createElement('h1');
+container.appendChild(h1);
+
+h1.textContent='hello';
 
