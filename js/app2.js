@@ -1,7 +1,8 @@
 'use strict';
+
 var hours = [ ' 6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var storeLocations = [];
-var salesTable = document.getElementById('salmonTable');
+var container = document.getElementById('salmonTable');
 
 function HeaderRow() { 
     
@@ -14,10 +15,10 @@ for (var i = 0; i <= hours.length; i++) {
 }
 
 thElement = document.createElement('th');
-thElement.textContent = '          Total';
+thElement.textContent = 'Total';
 tableRow.appendChild(thElement);
 
-salesTable.appendChild(tableRow);
+container.appendChild(tableRow);
 
 };
 
@@ -79,7 +80,7 @@ for (var i = 0; i < this.cookiesEachHourArray.length; i++) {
 var tdTotal = document.createElement('td');
 tdTotal.textContent = this.totalCookies;
 trRowName.appendChild(tdTotal);
-salesTable.appendChild(trRowName);
+container.appendChild(trRowName);
 };
 
 
@@ -101,7 +102,7 @@ function makeFooterRow() {
    
 var tableRow = document.createElement('tr');
 tableRow.textContent = 'Totals';
-salesTable.appendChild(tableRow);
+container.appendChild(tableRow);
 var resultTotal = 0;
 for (var i = 0; i < hours.length; i++) {
 
