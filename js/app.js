@@ -86,7 +86,7 @@ function renderFooterRow(table) {
   var tr = document.createElement('tr');
   
   table.appendChild(tr);
-
+  var footerRow=tr ;
   var td = document.createElement('td');
   
   tr.appendChild(td);
@@ -167,9 +167,10 @@ storeForm.addEventListener('submit',function(event) {
     
     // console.log(interests);
     
+    // table.removeChild(footerRow);
 
     var newStore = new CookieShop(name, min, max, avg);
-    console.log(newStore);
+    // console.log(newStore);
     
     newStore.render2();
 }
