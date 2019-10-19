@@ -202,6 +202,8 @@
 
 // }
 
+
+
 'use strict';
 
 var hours = ['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm'];//14
@@ -300,7 +302,7 @@ function createFooterRow() {
   var megaTotal = 0;
 
   // loop through totals
-  for (var hourIndex = 0; hourIndex < hours.length; hourIndex++) {
+  for (var hourIndex = 0; hourIndex < hours.length; hourIndex ++) {
     
     td = document.createElement('td');
     
@@ -364,3 +366,7 @@ function submitHandler(event) {
 }
 var form = document.getElementById('cookiesForm');
 form.addEventListener('submit', submitHandler);
+
+
+
+
