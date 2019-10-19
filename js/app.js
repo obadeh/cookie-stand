@@ -1,6 +1,6 @@
 'use strict';
 
-var hours = ['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm'];//14
+var hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm'];//14
 
 var container = document.getElementById('content-area');
 
@@ -8,7 +8,7 @@ var footerRow; // hold on to footer row because we may delete and replace later
 
 var table = document.createElement('table');
 container.appendChild(table);
-table.setAttribute('cellspacing','15px');
+table.setAttribute('cellspacing', '15px');
 
 function addElement(tagName, container, text) {
   var element = document.createElement(tagName);
@@ -22,7 +22,7 @@ function addElement(tagName, container, text) {
 }
 
 
-function Shop(location,min,max,avg){
+function Shop(location, min, max, avg) {
   this.location = location;
   this.min = min;
   this.max = max;
@@ -33,26 +33,26 @@ function Shop(location,min,max,avg){
   this.generateHourlySales();
 }
 
-Shop.prototype.avgNumCus = function() {
+Shop.prototype.avgNumCus = function () {
   var rang = this.max - this.min;
   var rand = Math.random() * rang + this.min;
   return Math.ceil(rand);
 };
 
-Shop.prototype.generateHourlySales = function() {
-  for (var i = 0; i < hours.length ; i++) {  
+Shop.prototype.generateHourlySales = function () {
+  for (var i = 0; i < hours.length; i++) {
     var cookEachHour = Math.ceil(this.avgNumCus() * this.avgcookie);
     // console.log(cookEachHour);
-    this.cookNumArr.push( cookEachHour );    
+    this.cookNumArr.push(cookEachHour);
     this.totalSale += cookEachHour;
   }
   console.log(this.cookNumArr);
 };
 
-Shop.prototype.renderRow = function(table){
+Shop.prototype.renderRow = function (table) {
 
-  var shopRow = addElement('tr',table);
-  addElement('td',shopRow, this.location);
+  var shopRow = addElement('tr', table);
+  addElement('td', shopRow, this.location);
 
   for (var i = 0; i < this.cookNumArr.length; i++) {
     var currentHourlySales = this.cookNumArr[i];
@@ -65,11 +65,11 @@ Shop.prototype.renderRow = function(table){
 function headerRow() {
 
   // access to all definitions in outside scopes , global 
-  var hourRow = addElement('tr',table);
+  var hourRow = addElement('tr', table);
 
-  addElement('th',hourRow);
+  addElement('th', hourRow);
 
-  for(var i = 0; i < hours.length; i++) {
+  for (var i = 0; i < hours.length; i++) {
     addElement('th', hourRow, hours[i]);
   }
 
@@ -80,26 +80,26 @@ function headerRow() {
 function createFooterRow() {
 
   console.log('footerRow');
-  
+
   var tr = document.createElement('tr');
 
   footerRow = tr;
-  
+
   table.appendChild(tr);
 
   var td = document.createElement('td');
-  
+
   tr.appendChild(td);
-  
+
   td.textContent = 'Totals';
 
   var megaTotal = 0;
 
   // loop through totals
   for (var hourIndex = 0; hourIndex < hours.length; hourIndex++) {
-    
+
     td = document.createElement('td');
-    
+
     tr.appendChild(td);
 
     var totalHourSales = 0; // a number, the sum of all the sales for that hour for each shop
@@ -132,7 +132,7 @@ shops.push(new Shop('lima', 2, 16, 4.6));
 
 headerRow();
 
-for(var i = 0; i < shops.length; i++) {
+for (var i = 0; i < shops.length; i++) {
   var currentShop = shops[i];
   currentShop.renderRow(table);
 }
@@ -141,7 +141,7 @@ createFooterRow();
 
 function submitHandler(event) {
   event.preventDefault();
-  
+
   var locationName = event.target.location.value;
   var min = parseInt(event.target.min.value);
   var max = parseInt(event.target.max.value);
